@@ -32,7 +32,8 @@ legalopc-whitepaper
 │   └── one-pager.html                 ← 一页纸介绍（零内部叙事，对外可用）
 ├── governance/
 │   ├── charter.md                     ← 起草小组工作章程（治理方式）
-│   └── writing-guide.md               ← 写作指南（红线 / 术语 / 分章要求）
+│   ├── writing-guide.md               ← 写作指南（红线 / 术语 / 分章要求）
+│   └── ai-participation-guide.md      ← AI 参与起草指南（碳基担责 / 披露 / 核验）
 └── community/
     ├── co-build-handbook.html         ← 共建发起手册（0–30 天第一步动作与话术）
     ├── invitation.html                ← 定向邀请函（模板）
@@ -55,7 +56,7 @@ LLM 把法律执行成本压到趋近于零，稀缺的不再是"能不能做完
 
 ## 如何参与
 
-1. 阅读 `CONTRIBUTING.md` 了解共建方式与写作红线。
+1. 阅读 `CONTRIBUTING.md` 了解共建方式与写作红线；使用 AI 辅助起草者，另见 `governance/ai-participation-guide.md`。
 2. 对白皮书正文的反馈：提交 Issue（标 `[白皮书]`）。
 3. 想成为章节主笔 / 评审 / 数据顾问：按 `community/invitation.html` 联系方式与主编沟通。
 
