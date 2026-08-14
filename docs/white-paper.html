@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LegalOPC 白皮书 v0.2（起草稿）· 下一代法律职业的定义与能力标准</title>
+<meta name="description" content="LegalOPC 白皮书 v0.2（v0.1 升级草案）：v0.1 概念版新增「序 / 卷首语」并完成红线术语净化，正文扩写进行中。">
+<style>
+  :root{
+    --brand:#0b2a4a; --brand-2:#102f55; --ink:#0f1e33; --ink-2:#33445c;
+    --muted:#6b7a90; --line:#e3e8f0; --wash:#f6f8fc; --paper:#ffffff;
+    --gold:#b8862b; --gold-soft:#f7eeda; --gold-line:#ecdcb8; --green:#1f9d6b;
+    --shadow:0 10px 30px rgba(15,30,51,.08); --shadow-lg:0 24px 60px rgba(15,30,51,.14);
+    --maxw:900px; --radius:14px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    color:var(--ink);background:var(--wash);line-height:1.78;-webkit-font-smoothing:antialiased;font-size:16px}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  h1,h2,h3,h4{line-height:1.32}
+  a{color:var(--brand);text-decoration:none}
+
+  /* Cover */
+  .cover{background:linear-gradient(160deg,#0b2a4a 0%,#102f55 55%,#0a2340 100%);color:#eaf1fb;padding:88px 0 76px;position:relative;overflow:hidden}
+  .cover::after{content:"";position:absolute;right:-140px;top:-120px;width:420px;height:420px;
+    background:radial-gradient(circle,rgba(184,134,43,.32),transparent 62%);pointer-events:none}
+  .cover .wrap{position:relative;z-index:1}
+  .eyebrow{color:#ffd98a;font-size:12.5px;letter-spacing:2.2px;text-transform:uppercase;font-weight:800;margin:0 0 18px}
+  .cover h1{font-size:44px;font-weight:850;letter-spacing:.5px;margin:0 0 16px}
+  .cover h1 .amp{color:#ffd98a}
+  .cover .sub{font-size:19px;color:#c8d8ef;font-weight:500;max-width:660px;margin:0 0 30px}
+  .cover .meta{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:13px;color:#9fc0e8;border-top:1px solid rgba(255,255,255,.14);padding-top:20px}
+  .cover .meta b{color:#fff;font-weight:700}
+  .badge{display:inline-block;background:rgba(255,217,138,.14);border:1px solid rgba(255,217,138,.4);
+    color:#ffd98a;font-size:12px;font-weight:700;padding:5px 12px;border-radius:999px;margin-bottom:22px}
+
+  /* Sections */
+  section{padding:54px 0;border-bottom:1px solid var(--line);background:var(--paper)}
+  section:nth-of-type(even){background:var(--wash)}
+  .kicker{color:var(--gold);font-size:12.5px;letter-spacing:1.6px;text-transform:uppercase;font-weight:800;margin:0 0 10px}
+  h2.t{font-size:28px;font-weight:850;margin:0 0 8px;color:var(--ink);letter-spacing:.3px}
+  h2.t .n{color:var(--gold);font-weight:800;margin-right:10px}
+  .dek{color:var(--muted);font-size:15.5px;margin:0 0 26px;max-width:680px}
+  p{margin:0 0 16px;color:var(--ink-2)}
+  .lead{font-size:19px;line-height:1.7;color:var(--ink);font-weight:500}
+  strong{color:var(--ink)}
+
+  /* Foreword / 序 */
+  .foreword{background:linear-gradient(135deg,#fbf6ea 0%,#fffdf8 60%,#fbf6ea 100%);border-bottom:1px solid var(--gold-line)}
+  .foreword .wrap{max-width:760px}
+  .foreword h2.t{font-size:25px;margin-bottom:18px}
+  .foreword .lead{color:var(--ink)}
+  .foreword p{font-size:15.5px;line-height:1.85}
+
+  /* Exec callout */
+  .thesis{background:linear-gradient(135deg,#fbf6ea,#fffdf8);border:1px solid var(--gold-line);
+    border-left:5px solid var(--gold);border-radius:var(--radius);padding:26px 28px;margin:6px 0 4px}
+  .thesis p{margin:0;font-size:18px;color:var(--ink);font-weight:600;line-height:1.7}
+
+  /* Signal cards */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:22px 20px;box-shadow:var(--shadow)}
+  .card .idx{font-size:13px;font-weight:800;color:var(--gold);letter-spacing:1px;margin-bottom:8px}
+  .card h4{margin:0 0 8px;font-size:17px;color:var(--ink)}
+  .card p{margin:0;font-size:14px;color:var(--muted);line-height:1.66}
+
+  /* Definition block */
+  .def{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:6px}
+  .def .box{background:var(--wash);border:1px solid var(--line);border-radius:12px;padding:20px 22px}
+  .def .box h4{margin:0 0 10px;font-size:15px;color:var(--brand);display:flex;align-items:center;gap:8px}
+  .def .box ul{margin:0;padding-left:18px}
+  .def .box li{margin:0 0 7px;font-size:14.5px;color:var(--ink-2)}
+
+  .matrix{background:#0b2a4a;color:#eaf1fb;border-radius:var(--radius);padding:24px 26px;margin:22px 0}
+  .matrix h4{margin:0 0 10px;color:#ffd98a;font-size:16px}
+  .matrix p{margin:0;color:#c8d8ef;font-size:15px}
+  .matrix .hl{color:#fff;font-weight:700}
+
+  /* Tables */
+  table{width:100%;border-collapse:collapse;margin:8px 0 4px;font-size:14.5px;background:var(--paper);
+    border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  th,td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:var(--wash);color:var(--brand);font-weight:800;font-size:13px;letter-spacing:.3px}
+  td{color:var(--ink-2)}
+  tr:last-child td{border-bottom:none}
+  .tag{display:inline-block;font-size:11.5px;font-weight:800;padding:2px 9px;border-radius:6px}
+  .tag.l0{background:#eef2f9;color:#3a5b86}
+  .tag.l1{background:#e8f4ee;color:#1f7d54}
+  .tag.l2{background:var(--gold-soft);color:#8a6212}
+
+  /* Ladder */
+  .ladder{display:flex;flex-direction:column;gap:10px;margin-top:6px}
+  .rung{display:flex;align-items:center;gap:16px;background:var(--paper);border:1px solid var(--line);
+    border-radius:12px;padding:16px 20px;box-shadow:var(--shadow)}
+  .rung .lv{flex:none;width:54px;height:54px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+    font-weight:850;font-size:18px;color:#fff}
+  .rung.a .lv{background:#3a5b86}.rung.b .lv{background:var(--green)}.rung.c .lv{background:var(--gold)}
+  .rung .c h4{margin:0 0 3px;font-size:16px;color:var(--ink)}
+  .rung .c p{margin:0;font-size:13.5px;color:var(--muted)}
+
+  /* Markets */
+  .mkt{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:6px}
+  .mkt .m{border-radius:var(--radius);padding:24px;border:1px solid var(--line)}
+  .mkt .main{background:var(--wash)}
+  .mkt .pio{background:linear-gradient(135deg,#fbf6ea,#fffdf8);border-color:var(--gold-line)}
+  .mkt .m h4{margin:0 0 6px;font-size:18px;color:var(--ink)}
+  .mkt .m .role{font-size:12.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+  .mkt .main .role{color:var(--brand)}.mkt .pio .role{color:var(--gold)}
+  .mkt .m p{margin:0;font-size:14.5px;color:var(--ink-2)}
+
+  /* Phases */
+  .phases{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:10px;position:relative}
+  .phase{padding:22px 20px;border:1px solid var(--line);background:var(--paper)}
+  .phase:nth-child(1){border-radius:12px 0 0 12px}
+  .phase:nth-child(3){border-radius:0 12px 12px 0}
+  .phase:nth-child(2){border-left:none;border-right:none;background:var(--wash)}
+  .phase .ph{font-size:12px;font-weight:800;letter-spacing:1px;color:var(--gold);margin-bottom:8px}
+  .phase h4{margin:0 0 8px;font-size:17px;color:var(--ink)}
+  .phase p{margin:0;font-size:13.5px;color:var(--muted);line-height:1.65}
+  .phase .who{margin-top:12px;font-size:12.5px;color:var(--brand);font-weight:700}
+
+  /* Stakeholder */
+  .stk{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:6px}
+  .stk .s{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+  .stk .s h4{margin:0 0 6px;font-size:15px;color:var(--brand)}
+  .stk .s p{margin:0;font-size:14px;color:var(--ink-2)}
+
+  /* CTA */
+  section.cta{background:linear-gradient(160deg,#0b2a4a,#102f55);color:#eaf1fb;text-align:center;border-bottom:none}
+  .cta h2{color:#fff;font-size:27px;margin:0 0 12px;font-weight:850}
+  .cta p{color:#c8d8ef;max-width:600px;margin:0 auto 24px;font-size:16px}
+  .btn{display:inline-block;background:#ffd98a;color:#3a2a06;font-weight:800;font-size:15px;
+    padding:14px 30px;border-radius:999px;box-shadow:0 10px 26px rgba(255,217,138,.28)}
+
+  /* Disclaimer / footer */
+  .note{background:var(--wash);border:1px dashed var(--line);border-radius:12px;padding:18px 20px;margin-top:26px}
+  .note p{margin:0;font-size:13px;color:var(--muted);line-height:1.7}
+  footer{background:#081d34;color:#8ea6c6;padding:30px 0;font-size:13px;text-align:center}
+  footer b{color:#dce8f7}
+
+  @media (max-width:720px){
+    .cover h1{font-size:32px}.cover .sub{font-size:16px}
+    .cards,.def,.mkt,.stk{grid-template-columns:1fr}
+    .phases{grid-template-columns:1fr}
+    .phase,.phase:nth-child(1),.phase:nth-child(3){border-radius:12px;border-left:1px solid var(--line);border-right:1px solid var(--line);margin-bottom:10px}
+    h2.t{font-size:23px}
+    table{display:block;overflow-x:auto;white-space:nowrap}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ COVER ============ -->
+<header class="cover">
+  <div class="wrap">
+    <p class="eyebrow">法务VC · LegalOPC 白皮书 v0.2</p>
+    <span class="badge">起草稿 · v0.2（草稿）</span>
+    <h1>下一代法律职业的<span class="amp">定义</span>与能力标准</h1>
+    <p class="sub">当 AI 把法律工作的执行成本压至近零，稀缺的不再是人力，而是承担责任边界的人。法律服务正在从"团队交付"转向"人机协同的个体交付单元"——我们称这一新型从业形态为 <b style="color:#ffd98a">LegalOPC</b>。</p>
+    <div class="meta">
+      <span><b>主编</b> 法务VC </span>
+      <span><b>版本</b> 起草稿 v0.2</span>
+      <span><b>日期</b> 2026·08（草稿）</span>
+      <span><b>性质</b> 行业观察与能力标准提案</span>
+    </div>
+    <p style="margin:16px 0 0;font-size:12.5px;line-height:1.6;color:#9fc0e8;max-width:680px;border-left:2px solid rgba(255,217,138,.55);padding:2px 0 2px 12px">
+      法务VC 是 LegalOPC 叙事与行业建设的发起方，承担早期工作；LegalOPC 则是其定义、并向所有法律人敞开的新组织形态与职业，非法务VC 专属产品或子公司。
+    </p>
+  </div>
+</header>
+
+<!-- ============ 序 / 卷首语 ============ -->
+<section class="foreword">
+  <div class="wrap">
+    <p class="kicker">Foreword · 序</p>
+    <h2 class="t">从法务VC 到 LegalOPC</h2>
+    <p class="lead">LegalOPC 不是凭空出现的概念。它的种子，是法务VC 在法律行业里反复撞见的一个问题：优秀的法律专业能力，怎样才能不困在「年资—执业—红圈所」的窄门里，让更多法律人独立地把专业能力交付出去？</p>
+    <p>但这一模式始终依赖少数法律人的时间与判断，难以规模化。之后的探索，都是在等一个能把「法律判断力」结构化、可规模化部署的工具。2022 年，LLM 范式出现——法律判断力第一次可以被编码、被部署、被复制。</p>
+    <p>于是，LegalOPC 作为「一个人 + 法律专业能力 + AI 智能体」的 OPC 形态落地：它是法务VC 当年那颗问题种子，在 LLM 时代真正长成的组织形态——向所有法律人敞开、<strong>并非法务VC 的专属产品或子公司</strong>。<strong>AI 做执行，法律人担责</strong>。问题从 2007 年就在那里，工具在 2022 年才赶来。LegalOPC，是这个问题等来的答案。</p>
+  </div>
+</section>
+
+<!-- ============ 摘要 / 核心判断 ============ -->
+<section>
+  <div class="wrap">
+    <p class="kicker">Executive Summary</p>
+    <h2 class="t">核心判断</h2>
+    <p class="lead">过去，一份法律交付需要一个团队；今天，一个受过训练的人加上 AI，就能构成一个完整的交付单元。</p>
+    <div class="thesis">
+      <p>法律行业正在出现一种新的从业形态：以个人为最小交付单元、以 AI 为执行杠杆、以"责任不可委托"为职业内核的从业者——LegalOPC（Legal One Person Company）。它不是"会用 AI 的律师"，而是围绕人机协同重新定义的一种职业标准。</p>
+    </div>
+    <p style="margin-top:22px">这一判断建立在一个不可逆的成本结构变化之上：法律工作中大量"执行性"环节（检索、起草、比对、整理）的边际成本正在趋近于零，而"判断与担责"环节的价值不降反升。当执行不再是瓶颈，交付的组织方式就会从"人力堆叠"退化为"个体 + 工具"。本白皮书定义这一形态，给出可检验的能力标准，并描绘它的演进路径。</p>
+  </div>
+</section>
+
+<!-- ============ 三个信号 ============ -->
+<section>
+  <div class="wrap">
+    <p class="kicker">Why Now</p>
+    <h2 class="t"><span class="n">01</span>三个信号：为什么是现在</h2>
+    <p class="dek">概念的出现从来不是空想，而是几股力量同时到位。以下三个信号，指向同一个方向。</p>
+    <div class="cards">
+      <div class="card">
+        <div class="idx">信号一</div>
+        <h4>执行成本趋近于零</h4>
+        <p>AI 把法律工作的执行环节（检索、起草、比对、文书整理）压到近乎免费。稀缺项从"能不能做完"变成"谁来对结果负责"——价值重心从人力转向责任边界。</p>
+      </div>
+      <div class="card">
+        <div class="idx">信号二</div>
+        <h4>真实 JD 已验证市场需求</h4>
+        <p>存量律所与企业正在为真金白银地招聘"法律 + AI、不卡法考"的复合角色（受雇岗位，法律责任由所在机构承担）——JD 明确要求法学背景叠加提示词工程、智能文书、案件数据化等能力。LegalOPC 的能力地图正是从这些真实 JD 逐条反推，是需求侧已存在的岗位画像，而非概念预设。</p>
+      </div>
+      <div class="card">
+        <div class="idx">信号三</div>
+        <h4>需求两端同时分化</h4>
+        <p>一端是存量企业与律所的法务提效需求（主体市场），一端是新增的自雇型、轻资产法律服务供给（先锋市场）。两端都指向同一种人：能独立驾驭人机协同的个体从业者。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LegalOPC 是什么 ============ -->
+<section>
+  <div class="wrap">
+    <p class="kicker">The Concept</p>
+    <h2 class="t"><span class="n">02</span>LegalOPC 是什么</h2>
+    <p class="dek">One Person Company（一人公司）是商业世界里成熟的组织形态。把它放进法律行业，就得到 LegalOPC——中文称「法律超级个体」（法务一人公司）：一个人 + AI，构成一个完整、可担责的法律交付单元。</p>
+
+    <div class="def">
+      <div class="box">
+        <h4>■ 它是</h4>
+        <ul>
+          <li>以个人为最小交付单元的法律从业者</li>
+          <li>以 AI 为执行杠杆、放大单人产能</li>
+          <li>以"责任不可委托"为职业内核</li>
+          <li>可受雇（企业内），也可自雇（独立执业）</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h4>■ 它不是</h4>
+        <ul>
+          <li>不是"会用 ChatGPT 的律师"——它有可认证的能力标准</li>
+          <li>不是要取代律师——责任始终由人承担</li>
+          <li>不是把法律意见外包给 AI——AI 只做执行</li>
+          <li>不是一款软件或工具——它是一种职业形态</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="matrix">
+      <h4>职业内核：责任不可委托矩阵</h4>
+      <p><span class="hl">AI 做执行，人担责任。</span>这是 LegalOPC 与"AI 法律工具用户"的根本分界。检索、起草、比对可以交给 AI，但对结果的专业判断、风险边界与最终担责，必须由具备法律基底的人承担且不可转移。正因如此，<span class="hl">法律背景是 LegalOPC 的入场硬门槛</span>——这不是门槛设计，而是责任结构的必然。</p>
+      <p style="margin-top:12px">责任结构不同，入场凭证也不同：<b>受雇方向</b>由所在机构承担最终法律责任，入场以法律学位或法律行业从业经验为凭证；<b>自雇方向</b>按业务边界划准入——非诉类法律服务（合同、合规、法务外包、培训）经律所或工商登记的法律服务公司交付、不强制法考。律师轨可进一步涉民事诉讼代理（属律师专属业务，须以律所执业证通道承接，非 OPC 自身交付）；<b>刑辩、以律师名义出具法律意见</b>不在 LegalOPC 交付范围内。两个方向共享同一套 L0/L1/L2 能力认证，区别仅在入场前置条件与可承接的业务边界。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 能力模型 ============ -->
+<section>
+  <div class="wrap">
+    <p class="kicker">Capability Standard</p>
+    <h2 class="t"><span class="n">03</span>能力模型：如何成为 LegalOPC</h2>
+    <p class="dek">一个新职业要能"教得会、认得出"，必须有可检验的能力标准。LegalOPC 的能力标准由八个模块（M1–M8）与三级认证（L0/L1/L2）构成。</p>
+
+    <table>
+      <tr><th style="width:64px">模块</th><th>能力</th><th style="width:88px">层级</th></tr>
+      <tr><td><b>M1</b></td><td>法律基底 · 责任边界认知</td><td><span class="tag l0">入场</span></td></tr>
+      <tr><td><b>M2</b></td><td>Prompt 工程与幻觉控制</td><td><span class="tag l0">入场</span></td></tr>
+      <tr><td><b>M3</b></td><td>法律信息的数据化处理</td><td><span class="tag l0">入场</span></td></tr>
+      <tr><td><b>M4</b></td><td>AI 辅助案件管理</td><td><span class="tag l1">熟练</span></td></tr>
+      <tr><td><b>M5</b></td><td>AI 辅助文书处理</td><td><span class="tag l1">熟练</span></td></tr>
+      <tr><td><b>M6</b></td><td>案卷数字化与知识训练</td><td><span class="tag l2">专家</span></td></tr>
+      <tr><td><b>M7</b></td><td>法律流程 SOP 设计</td><td><span class="tag l2">专家</span></td></tr>
+      <tr><td><b>M8</b></td><td>人机协同心智（软素质，贯穿全程）</td><td><span class="tag l2">一票否决</span></td></tr>
+    </table>
+
+    <div class="ladder">
+      <div class="rung a">
+        <div class="lv">L0</div>
+        <div class="c"><h4>入场 · 助理门槛</h4><p>通关 M1+M2+M3，具备安全使用 AI 处理法律工作的基础能力。</p></div>
+      </div>
+      <div class="rung b">
+        <div class="lv">L1</div>
+        <div class="c"><h4>熟练 · 可独立上岗</h4><p>L0 + M4+M5，能独立完成人机协同的案件与文书交付。</p></div>
+      </div>
+      <div class="rung c">
+        <div class="lv">L2</div>
+        <div class="c"><h4>专家 · 法律技术专家</h4><p>L1 + M6+M7，能把法律知识工程化、设计可复用的法律 AI 流程。此层能力对标复合型法律工程能力图谱。</p></div>
+      </div>
+    </div>
+    <p style="margin-top:18px;font-size:14px;color:var(--muted)">说明：能力标准作为能力参照，不构成任何官方资历互认声明。</p>
+  </div>
+</section>
+
+<!-- ============ 两个市场 ============ -->
+<section>
+  <div class="wrap">
+    <p class="kicker">Two Markets</p>
+    <h2 class="t"><span class="n">04</span>两个市场：LegalOPC 去哪里</h2>
+    <p class="dek">达到能力标准之后，LegalOPC 有两条出路——它们不是二选一，而是同一能力的两种变现方式。</p>
+    <div class="mkt">
+      <div class="m main">
+        <div class="role">主体市场 · 受雇</div>
+        <h4>存量机构的效率引擎</h4>
+        <p>进入企业法务部、律所或法律团队，作为受雇的法律技术专家，用人机协同把团队产能重构。这是规模最大、最先兑现的需求端——每一个存量法务岗，都是潜在的升级对象。</p>
+      </div>
+      <div class="m pio">
+        <div class="role">先锋市场 · 自雇</div>
+        <h4>独立的一人法律组织</h4>
+        <p>在 L2 能力之上，叠加获客、定价与合规责任能力，成为真正独立经营的 LegalOPC。自雇方向按业务边界准入：非诉类可经工商登记的法律服务公司交付、不强制法考，承接中小企业（SME）高频合规刚需；律师专属业务（民事诉讼代理）须以律所执业证通道承接、非 OPC 自身交付；刑辩、以律师名义出具法律意见不在交付范围内。这是全新增量供给：轻资产、可规模化的个体法律服务者。</p>
+      </div>
+    </div>
+    <p style="margin-top:18px">两个市场共享同一套能力标准。受雇是更稳的起点，自雇是更高的天花板——同一个人可以先在主体市场立足，再向先锋市场跃迁。这也让"成为 LegalOPC"有了明确的退可守、进可攻。</p>
+    <p style="margin-top:14px; color:#5b6b8c">其中，<strong>自雇 / 赋能这条路的真实付费市场，是海量中小企业（SME）的高频合规刚需</strong>——合同、劳动、知识产权、数据合规、广告法，量大、非诉、传统律师极少服务也服务不好。LegalOPC 以"企业 AI 法务部 / 云端法务部"的产品化交付承接这一市场，其能力底座由底层运行系统提供，法律人兜底责任。</p>
+  </div>
+</section>
+
+<!-- ============ 演进三阶段 ============ -->
+<section>
+  <div class="wrap">
+    <p class="kicker">The Evolution</p>
+    <h2 class="t"><span class="n">05</span>演进三阶段</h2>
+    <p class="dek">LegalOPC 不是一夜之间出现的岗位，而是法律从业方式沿一条清晰曲线的演进。行业中的每个人，都能在这条曲线上找到自己的位置。</p>
+    <div class="phases">
+      <div class="phase">
+        <div class="ph">PHASE 1</div>
+        <h4>辅助</h4>
+        <p>AI 作为提效工具，被动嵌入既有流程。人做全部判断与执行，AI 只是更快的检索/起草器。绝大多数从业者今天所处的阶段。</p>
+        <div class="who">今天 · 多数人在此</div>
+      </div>
+      <div class="phase">
+        <div class="ph">PHASE 2</div>
+        <h4>协同</h4>
+        <p>人主导判断、AI 承担执行，两者形成稳定分工。单人产能被显著放大，交付质量可控、可审计。LegalOPC 能力标准正是为这一阶段而设。</p>
+        <div class="who">进行中 · LegalOPC 起点</div>
+      </div>
+      <div class="phase">
+        <div class="ph">PHASE 3</div>
+        <h4>个体化</h4>
+        <p>个人成为完整的法律交付单元——一人公司化（OPC）。组织从"团队协作"重构为"个体 + AI 网络"，法律服务的供给结构被重写。</p>
+        <div class="who">趋势 · 先锋市场雏形</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 对各方意味什么 ============ -->
+<section>
+  <div class="wrap">
+    <p class="kicker">Implications</p>
+    <h2 class="t"><span class="n">06</span>这对各方意味着什么</h2>
+    <div class="stk">
+      <div class="s">
+        <h4>对法律人个人</h4>
+        <p>一条可认证、可衔接就业的成长路径。不必等行业变天，现在就能把自己从"执行者"升级为"人机协同的交付者"，主体市场受雇、先锋市场自雇，两端都有落点。</p>
+      </div>
+      <div class="s">
+        <h4>对律所与企业法务</h4>
+        <p>用能力标准而非"感觉"来识别和培养 AI 时代的人才。把存量团队按 L0/L1/L2 重构，效率引擎从招人转向升级人。</p>
+      </div>
+      <div class="s">
+        <h4>对法律教育与培训</h4>
+        <p>一套面向真实岗位、由 JD 反推的能力图谱，可直接对接课程与认证，填补"法学教育"与"AI 时代法律岗"之间的断层。</p>
+      </div>
+      <div class="s">
+        <h4>对整个行业</h4>
+        <p>一个清晰的品类定义与共同语言。让"AI + 法律"从零散的工具讨论，收敛为可标准化、可规模化、可担责的新职业。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta">
+  <div class="wrap">
+    <h2>共建 LegalOPC</h2>
+    <p>这份白皮书定义的是方向，真正定义它的是第一批人。如果你有法律背景、相信人机协同是法律服务的下一形态，我们正在招募首批共建者。</p>
+    <a class="btn" href="https://acn3rhkx0n91.feishu.cn/share/base/form/shrcn5eNZadTtt31s82B9jac52b" target="_blank" rel="noopener">申请加入 →</a>
+  </div>
+</section>
+
+<!-- ============ 边界声明 ============ -->
+<section>
+  <div class="wrap">
+    <p class="kicker">Disclaimer</p>
+    <h2 class="t">边界声明</h2>
+    <div class="note">
+      <p>
+        1. 本白皮书为行业观察与能力标准提案，属起草稿（v0.2），旨在提出方向与共同语言，不构成对任何具体成果、就业结果或收益的承诺。<br>
+        2. 本白皮书所有内容<b>不构成法律意见</b>，不可作为任何法律决策依据。<br>
+        3. LegalOPC 能力图谱，仅作能力参照，<b>不构成官方资历互认或等同声明</b>。<br>
+        4. "责任不可委托"是本形态的职业内核：AI 承担执行，专业判断与担责始终由具备法律背景的人承担。
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <b>法务VC · LegalOPC</b> · 白皮书 v0.2 起草稿 · 本文件不构成法律意见
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LegalOPC · 一页纸介绍</title>
+<style>
+  :root{
+    --ink:#1a1a2e; --sub:#5f5e5a; --line:#e5e7eb;
+    --teal:#0F6E56; --teal-bg:#E1F5EE; --green:#3B6D11; --green-bg:#EAF3DE;
+    --amber:#854F0B; --amber-bg:#FAEEDA; --blue:#185FA5; --blue-bg:#E6F1FB;
+    --red:#9B2C2C; --red-bg:#FBEAEA; --purple:#534AB7; --purple-bg:#EEEDFE;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+    color:var(--ink);background:#f4f5f7;line-height:1.6;padding:28px 16px;}
+  .page{max-width:820px;margin:0 auto;background:#fff;border-radius:14px;
+    box-shadow:0 1px 3px rgba(0,0,0,.08);overflow:hidden;}
+  .brand{display:inline-block;font-size:12px;font-weight:700;background:var(--teal);color:#fff;
+    border-radius:20px;padding:2px 10px;margin-right:8px;vertical-align:middle}
+  .band{background:var(--teal-bg);border-bottom:3px solid var(--teal);padding:22px 30px;}
+  .band h1{font-size:20px;font-weight:700;color:var(--teal);letter-spacing:.5px}
+  .band p{font-size:13.5px;color:#0c4a3a;margin-top:6px}
+  .ver{display:inline-block;font-size:11px;font-weight:700;background:var(--teal);color:#fff;
+    border-radius:20px;padding:1px 9px;margin-left:8px;vertical-align:middle}
+  .body{padding:22px 30px 30px}
+  h2{font-size:14px;font-weight:700;color:var(--ink);margin:20px 0 9px;
+    padding-left:9px;border-left:3px solid var(--teal)}
+  h2:first-child{margin-top:0}
+  p,li{font-size:13px;color:#2b2b33}
+  .lead{font-size:13.5px;color:#333;background:var(--green-bg);border:1px solid #cfe0b8;
+    border-radius:10px;padding:12px 14px;margin-top:8px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:8px}
+  .card{border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+  .card.amber{background:var(--amber-bg);border-color:#e8cf9a}
+  .card.amber h3{color:var(--amber)}
+  .card.blue{background:var(--blue-bg);border-color:#bcd6f2}
+  .card.blue h3{color:var(--blue)}
+  .card.green{background:var(--green-bg);border-color:#cfe0b8}
+  .card.green h3{color:var(--green)}
+  .card.red{background:var(--red-bg);border-color:#e7b4b4}
+  .card.red h3{color:var(--red)}
+  .card.purple{background:var(--purple-bg);border-color:#CECBF6}
+  .card.purple h3{color:var(--purple)}
+  .card.teal{background:var(--teal-bg);border-color:#9fd9c6}
+  .card.teal h3{color:var(--teal)}
+  .card h3{font-size:12.5px;font-weight:700;margin-bottom:5px}
+  ul{margin:4px 0 0 18px}
+  li{margin:3px 0}
+  .flow{display:flex;align-items:stretch;gap:8px;margin-top:10px;flex-wrap:wrap}
+  .node{flex:1;min-width:150px;border-radius:10px;padding:11px 13px;border:1px solid var(--line)}
+  .node.sme{background:var(--blue-bg);border-color:#bcd6f2}
+  .node.opc{background:var(--teal-bg);border-color:#9fd9c6;flex:1.4}
+  .node.law{background:var(--green-bg);border-color:#cfe0b8}
+  .node .t{font-size:12.5px;font-weight:700}
+  .node .d{font-size:11.5px;color:var(--sub);margin-top:3px}
+  .arrow{display:flex;align-items:center;color:var(--teal);font-size:12px;font-weight:700}
+  .tag{display:inline-block;font-size:11px;background:#fff;border:1px solid var(--teal);
+    color:var(--teal);border-radius:20px;padding:1px 9px;margin-top:6px}
+  .compare{width:100%;border-collapse:collapse;margin-top:8px;font-size:12.5px}
+  .compare th,.compare td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+  .compare th{background:#f7f8fa;font-weight:700}
+  .compare td:first-child{font-weight:600;width:22%}
+  .rev{display:flex;gap:12px;margin-top:8px;flex-wrap:wrap}
+  .revbox{flex:1;min-width:180px;border-radius:10px;padding:12px 14px;border:1px solid var(--line)}
+  .revbox.primary{background:var(--green-bg);border-color:#cfe0b8}
+  .revbox.primary h3{color:var(--green)}
+  .revbox.secondary{background:var(--blue-bg);border-color:#bcd6f2}
+  .revbox.secondary h3{color:var(--blue)}
+  .layer-row{display:flex;gap:10px;align-items:stretch;margin-top:8px}
+  .layer-row .layer-tag{flex:0 0 90px;border-radius:8px;padding:8px 10px;font-size:11px;font-weight:700;
+    display:flex;align-items:center;justify-content:center;text-align:center}
+  .layer-row .layer-body{flex:1;border-radius:8px;padding:10px 12px;border:1px solid var(--line);font-size:12px}
+  .foot{margin-top:18px;font-size:11px;color:var(--sub);border-top:1px dashed var(--line);padding-top:10px}
+  .delta{font-size:11px;color:var(--teal);font-weight:700;margin-left:6px}
+  .rl{font-size:11.5px;background:var(--teal-bg);border:1px solid #9fd9c6;border-radius:10px;
+    padding:10px 13px;margin-top:8px;color:#0c4a3a}
+  @media print{body{background:#fff;padding:0}.page{box-shadow:none;border-radius:0;max-width:none}}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="band">
+    <h1><span class="brand">LegalOPC</span>· 一页纸介绍 <span class="ver">基于发布会演讲稿 v2.0</span></h1>
+    <p>LLM 拆了法律交付的现金门槛；一个法律人 + AI，以 OPC（一人公司）形态，就是一个完整、能自负盈亏的交付单元——向所有法律人敞开的新组织形态与一门新职业。</p>
+  </div>
+  <div class="body">
+
+    <h2>一句话定位</h2>
+    <div class="lead">
+      LegalOPC 中文称<b>「法律超级个体」（法务一人公司）</b>——不是一个产品，也不是某家公司，而是一种新组织形态、一门新职业。
+      它让每个法律人都能以 OPC 一人公司 / 合规咨询公司形态，在 AI 加持下独立交付企业法务与合规服务（合同 / 劳动 / 数据合规 / 广告法）为核心画布；<b>人担责、AI 为外延</b>，订阅 / 月费即可自我造血，股权仅作极罕见的可选对齐红利。
+      <br><span style="color:var(--sub);font-size:12px">边界：不限律师或法务出身，定位在交付域而非入场身份；律师轨可涉诉讼代理（须律所执业证通道），不碰刑辩、不以律师名义出意见书。</span>
+    </div>
+
+    <h2>为什么是现在</h2>
+    <div class="grid2">
+      <div class="card blue">
+        <h3>真实需求：数千万中小企业的持续合规</h3>
+        <ul>
+          <li>合同、用工、数据、广告——高频合规刚需，单件出问题就伤筋动骨</li>
+          <li>请不起、也找不到合适的律师；要的是<b>持续性</b>法务，不是单点救火</li>
+          <li>前序法律科技（LegalZoom、ALSP 等）与早期行业探索，只改变了渠道、或做了替代性服务供应商（ALSP）——<b>没有真正改变法律工作的生产力</b>。它们撞到的也只是需求的一角：海量创业公司的股权期权焦虑、每天新生的企业（如调研显示 91% 早期法律问题集中于股权期权、日均 1.66 万新企）——<b>冰山一角，非总需求证明</b></li>
+        </ul>
+      </div>
+      <div class="card purple">
+        <h3>LLM 是真正的变量</h3>
+        <ul>
+          <li>2022 ChatGPT 发布：判断力第一次可被结构化编码、规模化部署</li>
+          <li>标准层边际成本被压到近乎为零：白皮书原话「过去一份交付需团队，今天一个受训练的人 + AI 就是完整交付单元」</li>
+          <li>一个法律人，能服务过去十倍的公司——当年压不下来的单位成本，现在能压下来</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin:8px 0 0;font-size:12px;color:var(--sub)"><b>对照：</b>前序法律科技改的是「渠道与供给形态」（ALSP、自助表单），LegalOPC 借 LLM 改的是「生产力本身」——生产层成本趋近于零、单位经济首次压得下来。这是同一头大象，两种打法。</p>
+
+    <h2 class="llm">LLM 冲击：法律工作三层拆解</h2>
+    <div class="layer-row">
+      <div class="layer-tag" style="background:#E6F1FB;color:#0C447C">生产层</div>
+      <div class="layer-body" style="background:#F7FAFD">
+        <strong>合同起草 / 法律检索 / 文书处理</strong> → AI 把成本压到趋近于零<br>
+        策略：AI 自动覆盖，低价/免费订阅做入口
+      </div>
+    </div>
+    <div class="layer-row">
+      <div class="layer-tag" style="background:#FAECE7;color:#712B13">控制层</div>
+      <div class="layer-body" style="background:#FDF8F5">
+        <strong>风险判断 / 审批 / 质量把关</strong> → AI 做大部分、但不能最终裁决<br>
+        策略：人带着 AI 下场，订阅 + 项目制现金
+      </div>
+    </div>
+    <div class="layer-row">
+      <div class="layer-tag" style="background:#E1F5EE;color:#085041">责任层</div>
+      <div class="layer-body" style="background:#F7FCFA">
+        <strong>签字 / 执业背书 / 合法性来源</strong> → <b>不可自动化、不可外包、不可压缩</b><br>
+        策略：人被收缩到这一唯一不可替代的节点——<b>人担责，AI 为外延</b>
+      </div>
+    </div>
+    <p style="margin-top:8px;font-size:12px;color:var(--sub)">AI 吞掉生产层、放大控制层、唯独啃不动责任层——这正是 LegalOPC 的立脚点。</p>
+
+    <h2>组织形态：一个法律人 + AI 的 OPC</h2>
+    <div class="flow">
+      <div class="node law">
+        <div class="t">法律人（担责）</div>
+        <div class="d">持执业背书、把住判断与责任</div>
+      </div>
+      <div class="arrow">+ AI ─▶</div>
+      <div class="node opc">
+        <div class="t">LegalOPC（一人公司 OPC）</div>
+        <div class="d">以 OPC 形态注册、自我造血<br>标准层 AI 跑、判断层人下场、关系层嵌入</div>
+        <span class="tag">AI 原生法律交付单元</span>
+      </div>
+      <div class="arrow">── 法务服务 ──▶</div>
+      <div class="node sme">
+        <div class="t">中小企业（SME）</div>
+        <div class="d">订阅/月费获取持续法务</div>
+      </div>
+    </div>
+    <p style="margin-top:8px;font-size:12px;color:var(--sub)">
+      北京智能体新政明确支持「以 OPC（一人公司）为代表的创新创业新模式」——LegalOPC 正好踩在同构点上，每个法律人自己就是一家法务机构，<b>没有母公司、没有上级</b>。
+    </p>
+
+    <h2>入场两轨：谁能成为 LegalOPC <span class="delta">按业务边界设门槛</span></h2>
+    <div class="grid2">
+      <div class="card blue">
+        <h3>受雇轨（主体市场）</h3>
+        <ul>
+          <li>入场门槛：法律学位 <b>或</b> 法律行业 N 年经验</li>
+          <li>以机构雇员身份执业，<b>责任由雇佣机构兜底</b></li>
+          <li>供给侧主流、最稳，对应最大市场</li>
+        </ul>
+      </div>
+      <div class="card teal">
+        <h3>自雇轨（先锋市场）</h3>
+        <ul>
+          <li>入场门槛 <b>按业务边界设</b>：非诉服务（合同 / 劳动 / 数据合规 / 广告法）可由工商登记的法律服务·合规咨询公司交付，<b>不强制法考</b></li>
+          <li>律师专属的民事诉讼代理须以律所执业证通道承接、非 OPC 自身交付；刑辩、以律师名义出意见书不在交付范围内</li>
+          <li>独立出具意见、独立经营，是先锋探索者</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:8px;font-size:12px;color:var(--sub)">
+      两轨共享 <b>L0–L2</b> 能力认证；自雇补丁（获客 / 定价 / 合规）叠在 L2 之上、仅自雇轨。门槛卡的是「你能交付哪类业务、责任由谁兜」，不是把人挡在门外——这正是「开放给所有法律人」的落地说明。
+    </p>
+
+    <h2>造血机制：三层订阅现金造血 <span class="delta">头条</span></h2>
+    <div class="rev">
+      <div class="revbox primary">
+        <h3>主收入 · 三层订阅</h3>
+        <ul>
+          <li><strong>标准层</strong>：AI 低价/免费订阅（获客入口，合同审查、合规筛查）</li>
+          <li><strong>判断层</strong>：订阅 + 项目制现金（重大合同、股权架构、危机处理）</li>
+          <li><strong>关系层</strong>：月费/年费（嵌入式外部法务部、董事会法律侧陪伴）</li>
+        </ul>
+      </div>
+      <div class="revbox secondary">
+        <h3>辅收入 · 可选股权（彩蛋，极罕见）</h3>
+        <ul>
+          <li>仅对「深度绑定、愿赌一张桌」的极少数客户开放</li>
+          <li>按约定范围与节点、<b>交付完成后</b>发放（非前置）</li>
+          <li>比例设上限；绝不混淆服务方与投资方两个角色</li>
+          <li>不是生存依赖，是「我们真站一条船」的罕见礼遇</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>存在方式三层次（防追问标准口径）</h2>
+    <div class="rl">
+      <strong>被问「LegalOPC 是不是一家公司 / 谁在管」时，用这段挡回：</strong><br>
+      ① <b>叙事层</b>——它是一套说法，不归任何机构所有；谁 Adopt 谁就有。<br>
+      ② <b>分布式个体实体层</b>——真正的载体，是千千万万个独立的个体 OPC：你成立你自己的那一家一人公司，我成立我的，<b>无母公司、无上级</b>。<br>
+      ③ <b>开放协调层（可选·不私有）</b>——白皮书 / 起草小组 / L0–L2 认证是公共品行业基建，任何人可用可参与，但不拥有 LegalOPC。<br>
+      <em>反检验：一旦给 LegalOPC 找一个公司实体当「总部」，它就退化成产品/子公司。</em>
+    </div>
+
+    <h2>边界与合规（写死）</h2>
+    <div class="card amber">
+      <h3>责任不可委托 · 品牌不串台</h3>
+      <ul>
+        <li><b>人担责、AI 为外延</b>：白皮书把责任层设计成可操作机制（风险分级、签字协议、审计记录），不止是道德原则</li>
+        <li><b>不称「模型」</b>：对外统一用叙事 / 概念 / 组织形态 / 职业；不称「LegalOPC 是行业级智能体」，说「让法律人成为运营法律行业智能体的超级个体」</li>
+        <li><b>品牌不串台</b>：LegalOPC 是独立叙事，不绑定为任何单一产品的标签；对外不挂其他项目 / 产品叙事</li>
+        <li><b>B 端锚定中小企业（SME）</b>：持续性法务，不把 OPC 创业者当核心付费市场</li>
+      </ul>
+    </div>
+
+    <div class="foot">
+      <strong>适合：</strong>想以 OPC 方式独立执业、服务中小企业的法律人（受雇轨 / 自雇轨，按业务边界设入场门槛）；需要持续性法务、负担不起传统律师的中小企业。<br>
+      <strong>不适合：</strong>把 LegalOPC 当成某家公司产品/加盟体系者；纯诉讼单点需求；拒绝 AI 辅助的团队。<br>
+      <em>文档关系：本一页纸为 LegalOPC「组织形态 / 新职业」叙事版，与产品语言版一页纸（服务与定价叙事）为平行双档；内容对齐白皮书起草稿与发布会叙事框架。</em>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

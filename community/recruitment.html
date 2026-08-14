@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>白皮书起草小组 · 招募 · 法务VC LegalOPC</title>
+<style>
+  :root{
+    --gold:#b8893a;
+    --gold-soft:#cfc3a8;
+    --ink:#1a1a1a;
+    --ink-2:#5a4a2e;
+    --cream:#f7f3ea;
+    --line:#ece3d2;
+    --muted:#8a8a8a;
+    --bg:#ffffff;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;
+    line-height:1.8;font-size:16px;-webkit-font-smoothing:antialiased;}
+  a{color:var(--gold);text-decoration:none;}
+  .wrap{max-width:880px;margin:0 auto;padding:0 22px;}
+
+  /* 顶部条 */
+  .topbar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);
+    backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid var(--line);}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:58px;}
+  .brand{font-weight:800;letter-spacing:1px;font-size:15px;}
+  .brand small{color:var(--gold);font-weight:600;letter-spacing:2px;margin-left:6px;font-size:12px;}
+  .topbar .cta{background:var(--gold);color:#fff;font-weight:700;font-size:14px;
+    padding:9px 18px;border-radius:6px;}
+
+  /* Hero */
+  .hero{background:var(--ink);color:#fff;padding:72px 0 64px;position:relative;overflow:hidden;}
+  .hero::after{content:"";position:absolute;right:-120px;top:-120px;width:360px;height:360px;
+    border:1px solid rgba(184,137,58,.35);border-radius:50%;}
+  .hero::before{content:"";position:absolute;right:-40px;top:-40px;width:220px;height:220px;
+    border:1px solid rgba(184,137,58,.22);border-radius:50%;}
+  .hero .wrap{position:relative;z-index:1;}
+  .eyebrow{color:var(--gold-soft);letter-spacing:3px;font-size:13px;margin:0 0 14px;}
+  .hero h1{font-size:38px;line-height:1.3;font-weight:800;margin:0 0 16px;}
+  .hero h1 .accent{color:var(--gold);}
+  .hero p.lead{color:#d9d2c4;font-size:17px;max-width:620px;margin:0 0 28px;}
+  .pill{display:inline-block;background:rgba(184,137,58,.16);color:var(--gold-soft);
+    border:1px solid rgba(184,137,58,.4);border-radius:999px;padding:6px 14px;
+    font-size:13px;margin:0 8px 8px 0;}
+
+  /* 通用 section */
+  section{padding:60px 0;}
+  section.alt{background:var(--cream);}
+  .sec-tag{color:var(--gold);font-weight:700;letter-spacing:2px;font-size:13px;margin:0 0 8px;}
+  h2{font-size:27px;font-weight:800;margin:0 0 10px;line-height:1.4;}
+  h3{font-size:18px;font-weight:800;margin:0 0 6px;}
+  .sec-sub{color:var(--muted);margin:0 0 30px;font-size:15px;}
+
+  /* 为什么这本书 */
+  .why-box{background:#fff;border:1px solid var(--line);border-radius:12px;padding:28px 26px;margin-top:8px;}
+  .why-box p{font-size:15px;color:var(--ink-2);line-height:1.85;margin:0 0 14px;}
+  .why-box p:last-child{margin:0;}
+
+  /* 这本书讲什么 */
+  .topic-list{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px;}
+  .topic{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);
+    border-radius:8px;padding:18px 20px;}
+  .topic b{display:block;font-size:15.5px;color:var(--ink);margin-bottom:6px;}
+  .topic p{font-size:13.5px;color:#555;margin:0;line-height:1.7;}
+
+  /* 谁在写 */
+  .trust{display:flex;gap:16px;margin-top:8px;}
+  .trust .t{flex:1;background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px;text-align:center;}
+  .trust .t b{display:block;font-size:15px;color:var(--ink);margin-bottom:4px;}
+  .trust .t span{font-size:13px;color:var(--muted);}
+
+  /* 角色卡 */
+  .roles{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .role{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px;
+    transition:transform .15s ease, box-shadow .15s ease;}
+  .role:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(26,26,26,.08);}
+  .role .rtag{display:inline-block;background:var(--cream);color:var(--ink-2);
+    border:1px solid var(--line);border-radius:999px;font-size:12px;padding:3px 12px;margin-bottom:10px;}
+  .role h3{font-size:17px;}
+  .role p{font-size:14px;color:#555;margin:8px 0 0;line-height:1.75;}
+  .role ul{margin:10px 0 0;padding-left:18px;color:#555;font-size:13.5px;}
+  .role ul li{margin:4px 0;}
+
+  /* 你能得到什么 */
+  .gains{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:8px;}
+  .gain{background:var(--cream);border:1px solid var(--line);border-radius:10px;padding:20px;text-align:center;}
+  .gain .icon{font-size:24px;margin-bottom:8px;}
+  .gain b{display:block;font-size:14.5px;color:var(--ink);margin-bottom:4px;}
+  .gain span{font-size:13px;color:var(--muted);line-height:1.6;display:block;}
+
+  /* 原则（简化） */
+  .prin{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;}
+  .prin span{display:inline-block;background:#fff;border:1px solid var(--line);border-radius:6px;
+    padding:8px 14px;font-size:13.5px;color:var(--ink-2);}
+
+  /* CTA */
+  .join{background:var(--ink);color:#fff;text-align:center;padding:68px 0;}
+  .join h2{color:#fff;}
+  .join p{color:#d9d2c4;max-width:560px;margin:0 auto 26px;font-size:15.5px;}
+  .join .big-cta{display:inline-block;background:var(--gold);color:#fff;font-weight:800;
+    font-size:17px;padding:15px 38px;border-radius:8px;letter-spacing:1px;}
+  .join .note{color:var(--gold-soft);font-size:13px;margin-top:18px;}
+
+  footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:13px;}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+
+  @media(max-width:680px){
+    .hero h1{font-size:30px;}
+    .topic-list,.roles,.gains,.trust{grid-template-columns:1fr;}
+    section{padding:46px 0;}
+  }
+</style>
+</head>
+<body>
+
+<!-- 顶部条 -->
+<div class="topbar">
+  <div class="wrap">
+    <div class="brand">法务VC<small>LEGALOPC</small></div>
+    <a class="cta" href="#join">报名加入 →</a>
+  </div>
+</div>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">LegalOPC 白皮书起草小组</p>
+    <h1>一起写一本<br>行业能<span class="accent">共同引用</span>的白皮书</h1>
+    <p class="lead">法律行业正在经历一场不可逆的变革：执行成本趋近于零，而判断与担责的价值在上升。我们需要一本白皮书，把「人 + AI」的法律从业形态，写成可共识、可引用的标准——这件事，需要你。</p>
+    <div>
+      <span class="pill">行业可引用标准</span>
+      <span class="pill">发布会核心交付物</span>
+      <span class="pill">共建者共同署名</span>
+    </div>
+  </div>
+</header>
+
+<!-- 为什么这本书 -->
+<section>
+  <div class="wrap">
+    <p class="sec-tag">WHY · 为什么写这本书</p>
+    <h2>法律行业缺一本「人 + AI」的标准文献</h2>
+    <div class="why-box">
+      <p>今天，法律行业里每个人都在谈 AI，但缺少一个共同语言——AI 能做什么、不能做什么、谁对结果负责、法律人在这个新结构里是什么角色。零散的工具讨论多，系统的职业定义少。</p>
+      <p>LegalOPC 白皮书要做的，就是填补这个空白：定义一种新的从业形态（Legal One Person Company），给出可检验的能力标准，描绘它的市场路径。它不是为了造一个新词，而是为了给行业里已经发生的变革一个名字、一套坐标、一份可引用的文献。</p>
+      <p>这本白皮书将成为发布会的<strong>核心交付物</strong>，也是 LegalOPC 对外输出专业信任的第一份正式文本。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 这本书讲什么 -->
+<section class="alt">
+  <div class="wrap">
+    <p class="sec-tag">WHAT · 这本书讲什么</p>
+    <h2>四个核心议题，正在等你的专业视角</h2>
+    <p class="sec-sub">白皮书已有核心框架（序 + 核心判断 + 六章），现需在以下方向深入：</p>
+    <div class="topic-list">
+      <div class="topic">
+        <b>法律职业的新定义</b>
+        <p>LegalOPC 不是「会用 AI 的律师」，而是一种围绕人机协同重新定义的职业形态——它的边界、内核与能力要求是什么？</p>
+      </div>
+      <div class="topic">
+        <b>可检验的能力标准</b>
+        <p>八个能力模块（M1–M8）与三级认证（L0/L1/L2）需要逐项展开：掌握标准、学习路径、检验方式。</p>
+      </div>
+      <div class="topic">
+        <b>中小企业的合规刚需</b>
+        <p>合同、劳动、数据合规、广告法——量大、高频、传统律师服务不好。这条路的真实付费市场在哪里？</p>
+      </div>
+      <div class="topic">
+        <b>从个人到生态的演进</b>
+        <p>一个法律人如何从「辅助阶段」走到「协同阶段」，最终成为独立的交付单元？这条路需要什么、缺什么？</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 谁在写 -->
+<section>
+  <div class="wrap">
+    <p class="sec-tag">WHO · 谁在写</p>
+    <h2>法务VC 发起，面向行业开放协作</h2>
+    <p class="sec-sub">白皮书由法务VC（fawuvc.com）发起团队牵头，以《LegalOPC 定位研究》为基准，现向法律实务、法律科技、中小企业合规领域开放协作。</p>
+    <div class="trust">
+      <div class="t"><b>法务VC</b><span>2015 年创立，服务创业者法务合伙人</span></div>
+      <div class="t"><b>定位研究先行</b><span>已完成能力模型与市场双轨分析</span></div>
+      <div class="t"><b>发布会背书</b><span>白皮书为发布会核心交付物</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 开放角色 -->
+<section class="alt">
+  <div class="wrap">
+    <p class="sec-tag">ROLES · 我们需要你做什么</p>
+    <h2>四种协作角色，总有一种适合你</h2>
+    <p class="sec-sub">有 AI 辅助执笔，你只需把关专业内容与责任边界。</p>
+    <div class="roles">
+      <div class="role">
+        <span class="rtag">章节主笔</span>
+        <h3>把专业能力写进文字</h3>
+        <p>认领某一核心议题，提供观点、案例与素材，由 AI 辅助执笔成文。</p>
+        <ul><li>法律实务或法律科技背景</li><li>能独立提供内容素材</li><li>标注来源，不编造数字</li></ul>
+      </div>
+      <div class="role">
+        <span class="rtag">行业评审</span>
+        <h3>把关专业口径</h3>
+        <p>以一线法律经验，审视白皮书的表述分寸与专业可行性。</p>
+        <ul><li>资深律师 / 学者 / 企业法务</li><li>识别越界与夸大表述</li><li>作为对外可信背书</li></ul>
+      </div>
+      <div class="role">
+        <span class="rtag">SME 数据顾问</span>
+        <h3>提供市场真实视角</h3>
+        <p>贡献中小企业合规市场的一手数据、痛点与付费逻辑。</p>
+        <ul><li>服务过 SME 的法律从业者</li><li>或熟悉合规市场的研究者</li><li>给出可引用的公开报告</li></ul>
+      </div>
+      <div class="role">
+        <span class="rtag">定位口径评审</span>
+        <h3>确保表述不越界</h3>
+        <p>把关白皮书与《LegalOPC 定位研究》的口径一致性。</p>
+        <ul><li>熟悉产品定位与品牌话术</li><li>校验「模型 vs 实现」表述</li><li>未定稿概念不写入</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 你能得到什么 -->
+<section>
+  <div class="wrap">
+    <p class="sec-tag">RETURN · 你来做这件事，能得到什么</p>
+    <h2>不止署名，还有先发位置</h2>
+    <div class="gains">
+      <div class="gain">
+        <div class="icon">&#9997;</div>
+        <b>共同署名</b>
+        <span>白皮书与发布会物料中署名致谢</span>
+      </div>
+      <div class="gain">
+        <div class="icon">&#128200;</div>
+        <b>行业影响力</b>
+        <span>参与定义下一代法律职业的标准</span>
+      </div>
+      <div class="gain">
+        <div class="icon">&#128640;</div>
+        <b>先发共建者</b>
+        <span>成为 LegalOPC 生态的首批核心贡献者</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 原则（简化） -->
+<section class="alt">
+  <div class="wrap">
+    <p class="sec-tag">PRINCIPLES · 我们的底线</p>
+    <h2>四条不可妥协的原则</h2>
+    <p class="sec-sub">这些不是限制，而是这本白皮书可信的根基。</p>
+    <div class="prin">
+      <span>人是责任主体，AI 只做执行</span>
+      <span>LegalOPC 是模型，不是产品上级</span>
+      <span>中小企业是真实付费市场</span>
+      <span>政策作背书，不作需求证据</span>
+    </div>
+  </div>
+</section>
+
+<!-- 节奏 -->
+<section>
+  <div class="wrap">
+    <p class="sec-tag">RHYTHM · 写作节奏</p>
+    <h2>围绕发布会，分阶段推进</h2>
+    <p class="sec-sub">白皮书写作分骨架确认、首轮扩写、市场与案例、统稿复核、定稿发布五个阶段。确认加入后，我们会与你对齐具体节奏。</p>
+  </div>
+</section>
+
+<!-- 加入 -->
+<section class="join" id="join">
+  <div class="wrap">
+    <p class="sec-tag" style="color:var(--gold-soft);">JOIN US</p>
+    <h2>认同这件事，就来一起写</h2>
+    <p>无论你是能扛单章的主笔、能提供真实案例的数据方、还是愿意帮我们把关的资深评审——只要认同「人担责、AI 做执行」，我们就想认识你。</p>
+    <a class="big-cta" href="https://acn3rhkx0n91.feishu.cn/share/base/form/shrcn5eNZadTtt31s82B9jac52b" target="_blank" rel="noopener">填写报名表 →</a>
+    <p class="note">报名后由法务VC 审核并确认角色，名额按章节需要匹配。</p>
+  </div>
+</section>
+
+<!-- 页脚 -->
+<footer>
+  <div class="wrap">
+    <span>法务VC LegalOPC · 白皮书起草小组招募</span>
+    <span>对外招募物料 · 以最终发布版本为准</span>
+  </div>
+</footer>
+
+</body>
+</html>
