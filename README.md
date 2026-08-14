@@ -4,6 +4,8 @@
 
 本仓库是 LegalOPC 白皮书的**开放共建仓库**：白皮书正文、一页纸、起草小组治理文件与公开物料，全部在此沉淀、迭代与讨论。
 
+> 📖 在线浏览入口：[仓库导航页](https://legalvc.github.io/legalopc-whitepaper/)（GitHub Pages 开启后生效）
+
 ---
 
 ## 状态
