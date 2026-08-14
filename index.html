@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LegalOPC · 白皮书起草小组 · 开放共建仓库</title>
+<style>
+  :root{
+    --ink:#1a1a2e; --sub:#5f5e5a; --line:#e5e7eb;
+    --teal:#0F6E56; --teal-bg:#E1F5EE; --green:#3B6D11; --green-bg:#EAF3DE;
+    --amber:#854F0B; --amber-bg:#FAEEDA; --blue:#185FA5; --blue-bg:#E6F1FB;
+    --purple:#534AB7; --purple-bg:#EEEDFE;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+    color:var(--ink);background:#f4f5f7;line-height:1.6;padding:28px 16px;}
+  .page{max-width:860px;margin:0 auto;background:#fff;border-radius:14px;
+    box-shadow:0 1px 3px rgba(0,0,0,.08);overflow:hidden;}
+  .band{background:var(--teal-bg);border-bottom:3px solid var(--teal);padding:26px 32px;}
+  .brand{display:inline-block;font-size:12px;font-weight:700;background:var(--teal);color:#fff;
+    border-radius:20px;padding:2px 12px;vertical-align:middle}
+  .band h1{font-size:22px;font-weight:700;color:var(--teal);letter-spacing:.5px;margin-top:10px}
+  .band p{font-size:13.5px;color:#0c4a3a;margin-top:8px}
+  .tagline{font-size:12px;color:#0c4a3a;background:rgba(255,255,255,.6);border:1px solid #9fd9c6;
+    border-radius:8px;padding:8px 12px;margin-top:12px}
+  .body{padding:22px 32px 30px}
+  .sec-title{font-size:13.5px;font-weight:700;color:var(--ink);margin:22px 0 10px;
+    padding-left:9px;border-left:3px solid var(--teal)}
+  .sec-title:first-child{margin-top:0}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .card{border:1px solid var(--line);border-radius:10px;padding:13px 15px;text-decoration:none;
+    display:block;transition:box-shadow .15s,border-color .15s}
+  .card:hover{box-shadow:0 2px 8px rgba(15,110,86,.15);border-color:var(--teal)}
+  .card .t{font-size:13px;font-weight:700;color:var(--ink)}
+  .card .t .ico{color:var(--teal);margin-right:5px}
+  .card .d{font-size:12px;color:var(--sub);margin-top:4px}
+  .card .path{font-size:10.5px;color:var(--teal);font-family:ui-monospace,Menlo,monospace;margin-top:6px}
+  .card.teal{background:var(--teal-bg);border-color:#9fd9c6}
+  .card.teal .t{color:#0c4a3a}
+  .card.green{background:var(--green-bg);border-color:#cfe0b8}
+  .card.green .t{color:var(--green)}
+  .card.blue{background:var(--blue-bg);border-color:#bcd6f2}
+  .card.blue .t{color:var(--blue)}
+  .card.amber{background:var(--amber-bg);border-color:#e8cf9a}
+  .card.amber .t{color:var(--amber)}
+  .card.purple{background:var(--purple-bg);border-color:#CECBF6}
+  .card.purple .t{color:var(--purple)}
+  .note{font-size:11.5px;color:var(--sub);background:#f7f8fa;border:1px solid var(--line);
+    border-radius:10px;padding:10px 14px;margin-top:20px}
+  .foot{margin-top:18px;font-size:11px;color:var(--sub);border-top:1px dashed var(--line);padding-top:10px}
+  .foot a{color:var(--teal);text-decoration:none}
+  @media (max-width:640px){.grid{grid-template-columns:1fr}}
+  @media print{body{background:#fff;padding:0}.page{box-shadow:none;border-radius:0;max-width:none}}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="band">
+    <span class="brand">LegalOPC</span>
+    <h1>白皮书起草小组 · 开放共建仓库</h1>
+    <p>法律超级个体（法务一人公司）——一个人 + 法律专业能力 + AI 智能体 = 可担责的法律交付单元。</p>
+    <div class="tagline">本仓库公开沉淀白皮书起草稿、治理文件与社区物料，欢迎共建与意见反馈。</div>
+  </div>
+
+  <div class="body">
+
+    <div class="sec-title">核心文档</div>
+    <div class="grid">
+      <a class="card teal" href="./docs/one-pager.html">
+        <div class="t"><span class="ico">▸</span>一页纸介绍</div>
+        <div class="d">为什么是现在、法律工作三层拆解、组织形态、入场两轨、造血机制——最快看懂 LegalOPC 的入口。</div>
+        <div class="path">docs/one-pager.html</div>
+      </a>
+      <a class="card teal" href="./docs/white-paper.html">
+        <div class="t"><span class="ico">▸</span>白皮书起草稿</div>
+        <div class="d">当前起草版本（Draft）。欢迎就任何一节提交 Issue 或发起讨论，正式版随发布会发布。</div>
+        <div class="path">docs/white-paper.html</div>
+      </a>
+    </div>
+
+    <div class="sec-title">治理文件</div>
+    <div class="grid">
+      <a class="card blue" href="https://github.com/legalvc/legalopc-whitepaper/blob/main/governance/charter.md">
+        <div class="t"><span class="ico">▸</span>工作章程</div>
+        <div class="d">版本阶梯、认证 L0–L2、入场两轨（受雇轨 / 自雇轨）、责任矩阵。</div>
+        <div class="path">governance/charter.md</div>
+      </a>
+      <a class="card blue" href="https://github.com/legalvc/legalopc-whitepaper/blob/main/governance/writing-guide.md">
+        <div class="t"><span class="ico">▸</span>写作指南</div>
+        <div class="d">术语口径、禁止词表、称谓纪律——共建写作时统一语言的依据。</div>
+        <div class="path">governance/writing-guide.md</div>
+      </a>
+    </div>
+
+    <div class="sec-title">社区物料</div>
+    <div class="grid">
+      <a class="card green" href="./community/co-build-handbook.html">
+        <div class="t"><span class="ico">▸</span>共建发起手册</div>
+        <div class="d">发起节奏、角色分工、行动步骤——从零发起一个起草小组的操作指南。</div>
+        <div class="path">community/co-build-handbook.html</div>
+      </a>
+      <a class="card green" href="./community/recruitment.html">
+        <div class="t"><span class="ico">▸</span>起草小组招募</div>
+        <div class="d">起草小组成员招募说明：岗位、参与方式与共建承诺。</div>
+        <div class="path">community/recruitment.html</div>
+      </a>
+      <a class="card green" href="./community/invitation.html">
+        <div class="t"><span class="ico">▸</span>起草小组邀请函</div>
+        <div class="d">定向邀请函：为什么共建、怎么共建、共建什么。</div>
+        <div class="path">community/invitation.html</div>
+      </a>
+      <a class="card green" href="./community/announcement-drafting-group.html">
+        <div class="t"><span class="ico">▸</span>起草小组公众号文章</div>
+        <div class="d">面向公众的成立说明：LegalOPC 是什么、起草小组在做什么。</div>
+        <div class="path">community/announcement-drafting-group.html</div>
+      </a>
+      <a class="card amber" href="./community/editor-note.html">
+        <div class="t"><span class="ico">▸</span>法务VC 主编说明</div>
+        <div class="d">法务VC 以白皮书主编身份说明为何参与支持 LegalOPC 白皮书。</div>
+        <div class="path">community/editor-note.html</div>
+      </a>
+    </div>
+
+    <div class="sec-title">参与共建</div>
+    <div class="grid">
+      <a class="card purple" href="https://github.com/legalvc/legalopc-whitepaper/blob/main/CONTRIBUTING.md">
+        <div class="t"><span class="ico">▸</span>贡献指南</div>
+        <div class="d">Issue、PR、讨论的流程与规范。</div>
+        <div class="path">CONTRIBUTING.md</div>
+      </a>
+      <a class="card purple" href="https://github.com/legalvc/legalopc-whitepaper">
+        <div class="t"><span class="ico">▸</span>仓库主页</div>
+        <div class="d">README 与版本状态总览。</div>
+        <div class="path">github.com/legalvc/legalopc-whitepaper</div>
+      </a>
+      <a class="card purple" href="https://github.com/legalvc/legalopc-whitepaper/blob/main/LICENSE">
+        <div class="t"><span class="ico">▸</span>许可证</div>
+        <div class="d">CC BY 4.0——署名即可复用。</div>
+        <div class="path">LICENSE</div>
+      </a>
+      <a class="card purple" href="https://github.com/legalvc/legalopc-whitepaper/issues">
+        <div class="t"><span class="ico">▸</span>意见反馈</div>
+        <div class="d">对白皮书任何一节的意见，请开 Issue。</div>
+        <div class="path">Issues</div>
+      </a>
+    </div>
+
+    <div class="note">⚠️ 仓库内容为起草阶段产物，白皮书正文尚在扩写中；文档状态以 <a href="https://github.com/legalvc/legalopc-whitepaper/blob/main/README.md" style="color:var(--teal)">README</a> 为准。</div>
+
+  </div>
+
+  <div class="foot">LegalOPC 白皮书起草小组 · <a href="https://github.com/legalvc/legalopc-whitepaper">github.com/legalvc/legalopc-whitepaper</a> · CC BY 4.0</div>
+
+</div>
+</body>
+</html>
